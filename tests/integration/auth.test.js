@@ -1,25 +1,39 @@
 const request = require('supertest');
 const app = require('../../src/app');
-const User = require('../../src/models/user.model');
+const Auth = require('../../src/models/auth.model');
+const Profile = require('../../src/models/profile.model');
 const jwt = require('jsonwebtoken');
 
-jest.mock('../../src/models/user.model');
+jest.mock('../../src/models/auth.model');
+jest.mock('../../src/models/profile.model');
 
-describe('Auth API Integration Tests', () => {
+describe('Auth API Integration Tests (Refactored)', () => {
   beforeEach(() => {
     jest.clearAllMocks();
   });
 
   describe('POST /api/auth/signup', () => {
-    test('should register a new user successfully', async () => {
-      User.findOne.mockResolvedValue(null);
-      User.mockImplementation(function (data) {
+    test('should register a new account (creating Auth & Profile split records)', async () => {
+      Auth.findOne.mockResolvedValue(null);
+      
+      // Mock Auth instantiation
+      Auth.mockImplementation(function (data) {
         const instance = {
-          _id: 'mock_user_id_123',
-          name: data.name,
+          _id: 'mock_auth_id_123',
           email: data.email,
-          password: data.password,
-          gender: data.gender
+          password: data.password
+        };
+        instance.save = jest.fn().mockResolvedValue(instance);
+        return instance;
+      });
+
+      // Mock Profile instantiation
+      Profile.mockImplementation(function (data) {
+        const instance = {
+          authId: data.authId,
+          fullName: data.fullName,
+          gender: data.gender,
+          universityName: null
         };
         instance.save = jest.fn().mockResolvedValue(instance);
         return instance;
@@ -28,36 +42,36 @@ describe('Auth API Integration Tests', () => {
       const response = await request(app)
         .post('/api/auth/signup')
         .send({
-          name: 'Jane Doe',
-          email: 'jane@example.com',
+          email: 'refactor@example.com',
           password: 'SecurePassword123!',
+          fullName: 'Jane Doe',
           gender: 'female'
         });
 
-      if (response.status !== 201) {
-        console.log('SIGNUP ERROR BODY:', response.body);
-      }
       expect(response.status).toBe(201);
       expect(response.body).toEqual({
         message: 'Registration successful',
-        user: {
-          id: 'mock_user_id_123',
-          email: 'jane@example.com',
-          name: 'Jane Doe',
-          gender: 'female'
+        auth: {
+          id: 'mock_auth_id_123',
+          email: 'refactor@example.com'
+        },
+        profile: {
+          fullName: 'Jane Doe',
+          gender: 'female',
+          universityName: null
         }
       });
     });
 
     test('should fail if email is already registered', async () => {
-      User.findOne.mockResolvedValue({ email: 'jane@example.com' });
+      Auth.findOne.mockResolvedValue({ email: 'refactor@example.com' });
 
       const response = await request(app)
         .post('/api/auth/signup')
         .send({
-          name: 'Jane Doe',
-          email: 'jane@example.com',
+          email: 'refactor@example.com',
           password: 'SecurePassword123!',
+          fullName: 'Jane Doe',
           gender: 'female'
         });
 
@@ -65,11 +79,11 @@ describe('Auth API Integration Tests', () => {
       expect(response.body).toEqual({ error: 'Email is already registered' });
     });
 
-    test('should fail if field is missing', async () => {
+    test('should fail if mandatory signup field is missing', async () => {
       const response = await request(app)
         .post('/api/auth/signup')
         .send({
-          email: 'jane@example.com',
+          email: 'refactor@example.com',
           password: 'SecurePassword123!'
         });
 
@@ -79,44 +93,38 @@ describe('Auth API Integration Tests', () => {
   });
 
   describe('POST /api/auth/login', () => {
-    test('should log in a user and return access and refresh tokens', async () => {
-      const mockUser = {
-        _id: 'mock_user_id_123',
-        email: 'jane@example.com',
-        name: 'Jane Doe',
-        comparePassword: jest.fn().mockResolvedValue(true),
-        save: jest.fn().mockResolvedValue(true)
+    test('should authenticate user and return ONLY accessToken', async () => {
+      const mockAuth = {
+        _id: 'mock_auth_id_123',
+        email: 'refactor@example.com',
+        comparePassword: jest.fn().mockResolvedValue(true)
       };
       
-      User.findOne.mockResolvedValue(mockUser);
+      Auth.findOne.mockResolvedValue(mockAuth);
 
       const response = await request(app)
         .post('/api/auth/login')
         .send({
-          email: 'jane@example.com',
+          email: 'refactor@example.com',
           password: 'SecurePassword123!'
         });
 
       expect(response.status).toBe(200);
       expect(response.body).toHaveProperty('accessToken');
-      expect(response.body).toHaveProperty('refreshToken');
-      expect(response.body.user).toEqual({
-        id: 'mock_user_id_123',
-        email: 'jane@example.com',
-        name: 'Jane Doe'
-      });
+      expect(response.body).not.toHaveProperty('refreshToken'); // Strict token cleanup check
+      expect(response.body.message).toBe('Login successful');
     });
 
-    test('should reject invalid credentials', async () => {
-      const mockUser = {
+    test('should reject incorrect login credentials', async () => {
+      const mockAuth = {
         comparePassword: jest.fn().mockResolvedValue(false)
       };
-      User.findOne.mockResolvedValue(mockUser);
+      Auth.findOne.mockResolvedValue(mockAuth);
 
       const response = await request(app)
         .post('/api/auth/login')
         .send({
-          email: 'jane@example.com',
+          email: 'refactor@example.com',
           password: 'WrongPassword123!'
         });
 
@@ -126,30 +134,13 @@ describe('Auth API Integration Tests', () => {
   });
 
   describe('POST /api/auth/logout', () => {
-    test('should successfully log out and invalidate refresh token', async () => {
-      const mockUser = {
-        refreshToken: 'mock_refresh_token_123',
-        save: jest.fn().mockResolvedValue(true)
-      };
-      User.findOne.mockResolvedValue(mockUser);
-
+    test('should successfully log out statelessly', async () => {
       const response = await request(app)
         .post('/api/auth/logout')
-        .send({
-          refreshToken: 'mock_refresh_token_123'
-        });
+        .send();
 
       expect(response.status).toBe(200);
       expect(response.body).toEqual({ message: 'Logged out successfully' });
-    });
-
-    test('should fail if token is missing', async () => {
-      const response = await request(app)
-        .post('/api/auth/logout')
-        .send({});
-
-      expect(response.status).toBe(400);
-      expect(response.body).toEqual({ error: 'Refresh token is required' });
     });
   });
 });
