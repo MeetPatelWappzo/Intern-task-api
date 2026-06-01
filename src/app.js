@@ -8,6 +8,17 @@ dotenv.config();
 
 const app = express();
 
+process.on('uncaughtException', (err) => {
+  console.log("CRITICAL UNCAUGHT EXCEPTION: ", err.message);
+  console.log(err.stack);
+  process.exit(1);
+});
+
+process.on('unhandledRejection', (reason, promise) => {
+  console.log('CRITICAL UNHANDLED REJECTION AT:', promise, 'REASON:', reason);
+  process.exit(1);
+});
+
 // Body Parser Middleware
 app.use(express.json());
 
