@@ -24,6 +24,8 @@ tests/
 Node.js v20.x: Follow standard conventions
 
 ## Recent Changes
+- 005-file-management: Created a dedicated File Management module using the existing Multer and Cloudinary configurations
+- 003-user-profile-upload: Designed user profile retrieval and Cloudinary image upload endpoints with strict size limit verification
 - 002-refactor-auth-profile: Added Node.js v20.x + Express.js, Mongoose, bcryptjs, jsonwebtoken, dotenv, multer, cloudinary
 
 - 001-user-auth: Added Node.js v20.x + Express.js, Mongoose, bcryptjs, jsonwebtoken, dotenv

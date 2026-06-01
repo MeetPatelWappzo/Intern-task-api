@@ -1,7 +1,11 @@
 const express = require('express');
 const dotenv = require('dotenv');
+const swaggerUi = require('swagger-ui-express');
+const swaggerSpec = require('./config/swagger');
 const authRoutes = require('./routes/auth.routes');
-const verifyToken = require('./middleware/auth.middleware');
+const profileRoutes = require('./routes/profile.routes');
+const taskRoutes = require('./routes/task.routes');
+const fileRoutes = require('./routes/file.routes');
 
 // Load environment variables
 dotenv.config();
@@ -11,20 +15,25 @@ const app = express();
 // Body Parser Middleware
 app.use(express.json());
 
-// Mount Authentication Routes
-app.use('/api/auth', authRoutes);
+// ── Swagger UI ──────────────────────────────────────────────
+app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec, {
+  customSiteTitle: 'Intern Task API Docs',
+  swaggerOptions: {
+    persistAuthorization: true  // keeps the Bearer token across page reloads
+  }
+}));
 
-// Protected Mock Route for API verification
-app.get('/api/tasks', verifyToken, (req, res) => {
-  return res.status(200).json({
-    message: 'Secure resource accessed successfully',
-    user: req.user,
-    tasks: [
-      { id: 1, title: 'Learn Express.js', completed: true },
-      { id: 2, title: 'Learn Mongoose & MongoDB', completed: false }
-    ]
-  });
+// Expose the raw OpenAPI JSON spec (useful for Postman import)
+app.get('/api/docs.json', (req, res) => {
+  res.setHeader('Content-Type', 'application/json');
+  res.send(swaggerSpec);
 });
+
+// ── API Routes ──────────────────────────────────────────────
+app.use('/api/auth', authRoutes);
+app.use('/api/profile', profileRoutes);
+app.use('/api/tasks', taskRoutes);
+app.use('/api/files', fileRoutes);
 
 // Global Error Handler Middleware
 app.use((err, req, res, next) => {

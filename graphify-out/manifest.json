@@ -1,0 +1,592 @@
+{
+  "D:\\Meet Patel\\Personal\\intern-task-api\\package.json": {
+    "mtime": 1780304381.7626228,
+    "ast_hash": "3d9a27fc7cb20c8d3c989a5d51b69ee6",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.agent\\skills\\scripts\\bash\\check-prerequisites.sh": {
+    "mtime": 1780295589.7510312,
+    "ast_hash": "a8738d6f126b60481413b0e9ef6ef4ae",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.agent\\skills\\scripts\\bash\\common.sh": {
+    "mtime": 1780295589.7510312,
+    "ast_hash": "9221ae87db6704d4d532718f4424dd00",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.agent\\skills\\scripts\\bash\\create-new-feature.sh": {
+    "mtime": 1780295589.7520158,
+    "ast_hash": "eb8c4468ab330f53daa53b3c6a785637",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.agent\\skills\\scripts\\bash\\setup-plan.sh": {
+    "mtime": 1780295589.7520158,
+    "ast_hash": "4ce206b50f766fbf36a2d69e448356e9",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.agent\\skills\\scripts\\bash\\update-agent-context.sh": {
+    "mtime": 1780295589.7535317,
+    "ast_hash": "7593ba8c83a162ca6a9ad214d084948f",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.specify\\scripts\\bash\\check-prerequisites.sh": {
+    "mtime": 1780295589.7510312,
+    "ast_hash": "a8738d6f126b60481413b0e9ef6ef4ae",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.specify\\scripts\\bash\\common.sh": {
+    "mtime": 1780295589.7510312,
+    "ast_hash": "9221ae87db6704d4d532718f4424dd00",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.specify\\scripts\\bash\\create-new-feature.sh": {
+    "mtime": 1780295589.7520158,
+    "ast_hash": "eb8c4468ab330f53daa53b3c6a785637",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.specify\\scripts\\bash\\setup-plan.sh": {
+    "mtime": 1780295589.7520158,
+    "ast_hash": "4ce206b50f766fbf36a2d69e448356e9",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.specify\\scripts\\bash\\update-agent-context.sh": {
+    "mtime": 1780295589.7535317,
+    "ast_hash": "7593ba8c83a162ca6a9ad214d084948f",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\specs\\001-user-auth\\contracts\\auth.openapi.json": {
+    "mtime": 1780296657.4104965,
+    "ast_hash": "91ce84d0dd24d05b31f784bff1a330c6",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\specs\\002-refactor-auth-profile\\contracts\\auth.openapi.json": {
+    "mtime": 1780298111.0595136,
+    "ast_hash": "13d494cb96ccf88a9526762cacf9f407",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\specs\\003-user-profile-upload\\contracts\\profile.openapi.json": {
+    "mtime": 1780298410.8853588,
+    "ast_hash": "9ec084c191703474ea5cc7e5c77cca9d",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\specs\\004-dashboard-task-crud\\contracts\\tasks.openapi.json": {
+    "mtime": 1780298699.0380597,
+    "ast_hash": "788412573fb3654ea53317a1d229e8d8",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\src\\app.js": {
+    "mtime": 1780304481.8378398,
+    "ast_hash": "6151fb28757bd51c03fe2be362b3dc43",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\src\\server.js": {
+    "mtime": 1780304852.7468631,
+    "ast_hash": "4b57841d3d8e276090d6f882203b6eb6",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\src\\config\\cloudinary.js": {
+    "mtime": 1780298494.899129,
+    "ast_hash": "8c909f37d2500991ba13e5d73fe623ce",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\src\\config\\db.js": {
+    "mtime": 1780304139.8010135,
+    "ast_hash": "daa607c111d3b8af8d82b37ab1035771",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\src\\config\\swagger.js": {
+    "mtime": 1780305194.8606522,
+    "ast_hash": "746bc57f706a84a019ec8e0cd484bbb9",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\src\\controllers\\auth.controller.js": {
+    "mtime": 1780298215.172338,
+    "ast_hash": "e2d5ebe7521249f9df45a3a1609b7a33",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\src\\controllers\\profile.controller.js": {
+    "mtime": 1780298542.531535,
+    "ast_hash": "c269026a474e4951eb8b28a4e544c367",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\src\\controllers\\task.controller.js": {
+    "mtime": 1780298830.6261458,
+    "ast_hash": "8c7fe0f1638bd3c29f101ab8ee7521dd",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\src\\middleware\\auth.middleware.js": {
+    "mtime": 1780298222.6370065,
+    "ast_hash": "ec179fc9667ad106cfac6a194343f393",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\src\\middleware\\upload.middleware.js": {
+    "mtime": 1780298517.969973,
+    "ast_hash": "517ccd232843078e59de194bbaed8570",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\src\\models\\auth.model.js": {
+    "mtime": 1780298204.1235497,
+    "ast_hash": "a5292528e1c8f73a5f08c83a37b0fc70",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\src\\models\\profile.model.js": {
+    "mtime": 1780298208.9255323,
+    "ast_hash": "bbffb4665a4bff261c70720922632c50",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\src\\models\\task.model.js": {
+    "mtime": 1780298805.7576523,
+    "ast_hash": "93ad325df3c81f7c899a40a7e59f15aa",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\src\\routes\\auth.routes.js": {
+    "mtime": 1780304424.483333,
+    "ast_hash": "b4e00365f64d26be489d8d65cbf99942",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\src\\routes\\profile.routes.js": {
+    "mtime": 1780304442.456791,
+    "ast_hash": "e9233543ad464251da4836c814d5dbca",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\src\\routes\\task.routes.js": {
+    "mtime": 1780304468.9670966,
+    "ast_hash": "ac18a8c43b940901c0e4d6d91e7e0058",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\src\\services\\cloudinary.service.js": {
+    "mtime": 1780298504.8563168,
+    "ast_hash": "9cf1da3fb9c01d44654c2bfb53e900ce",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\tests\\contract\\auth.contract.test.js": {
+    "mtime": 1780298271.9319696,
+    "ast_hash": "87d0f380062b648ae82d28c76bc0a757",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\tests\\contract\\profile.contract.test.js": {
+    "mtime": 1780298537.1951096,
+    "ast_hash": "82908bfdf21c3db33a50344decc10131",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\tests\\contract\\task.contract.test.js": {
+    "mtime": 1780298825.3575466,
+    "ast_hash": "6ee68a6bcfaf9346a5584338bf93bbbc",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\tests\\integration\\auth.test.js": {
+    "mtime": 1780298231.3118277,
+    "ast_hash": "b71900bd97af3524d981b8b94f2dfb28",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\tests\\integration\\profile.test.js": {
+    "mtime": 1780298582.7883425,
+    "ast_hash": "6c41098b43a316fc908e2f6d3b57cdce",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\tests\\integration\\task.test.js": {
+    "mtime": 1780298859.2575312,
+    "ast_hash": "d4a4d69f9240a15554186af921d4b471",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\tests\\unit\\auth.middleware.test.js": {
+    "mtime": 1780296876.853825,
+    "ast_hash": "5941fbd393c01ee761be0f3d47ffa2b5",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\GEMINI.md": {
+    "mtime": 1780298422.0441682,
+    "ast_hash": "18f55395622d26928338b32784ac918b",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.agent\\README.md": {
+    "mtime": 1780295589.748491,
+    "ast_hash": "fa7ed1f6870ce326638eee9ebe17e83e",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.agent\\skills\\speckit.analyze\\SKILL.md": {
+    "mtime": 1780295589.7535317,
+    "ast_hash": "7fea1e2b145ff990303b0368f8185d9a",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.agent\\skills\\speckit.checker\\SKILL.md": {
+    "mtime": 1780295589.754923,
+    "ast_hash": "515e55ac881f6cf1eacb8b532b5c3d38",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.agent\\skills\\speckit.checklist\\SKILL.md": {
+    "mtime": 1780295589.754923,
+    "ast_hash": "1e05205092be2e6f9570e6c1fbe06cee",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.agent\\skills\\speckit.checklist\\templates\\checklist-template.md": {
+    "mtime": 1780295589.7559402,
+    "ast_hash": "87c4b390cebe71d15364bcd4690a102f",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.agent\\skills\\speckit.clarify\\SKILL.md": {
+    "mtime": 1780295589.7559402,
+    "ast_hash": "c840e855d30e25549e7bf9242eed2fc9",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.agent\\skills\\speckit.constitution\\SKILL.md": {
+    "mtime": 1780295589.7574594,
+    "ast_hash": "99024db5c51f28ce2454cf50984ea6a0",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.agent\\skills\\speckit.diff\\SKILL.md": {
+    "mtime": 1780295589.7584808,
+    "ast_hash": "9dfdc867f87d644b306fb7645544f800",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.agent\\skills\\speckit.implement\\SKILL.md": {
+    "mtime": 1780295589.7601075,
+    "ast_hash": "6b7d789a61f4d15812889647c8ab76af",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.agent\\skills\\speckit.migrate\\SKILL.md": {
+    "mtime": 1780295589.7601075,
+    "ast_hash": "68d2b7a1e942e8547c6ed44245a37471",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.agent\\skills\\speckit.plan\\SKILL.md": {
+    "mtime": 1780295589.7612724,
+    "ast_hash": "85a261fb458f8521cd0a863e8458becf",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.agent\\skills\\speckit.plan\\templates\\agent-file-template.md": {
+    "mtime": 1780295589.7622943,
+    "ast_hash": "b8247a4214e5a2fb2468ad8dcf5fca50",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.agent\\skills\\speckit.plan\\templates\\plan-template.md": {
+    "mtime": 1780295589.7622943,
+    "ast_hash": "da13d515cc460ff32df879f1878d7d60",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.agent\\skills\\speckit.quizme\\SKILL.md": {
+    "mtime": 1780295589.7632961,
+    "ast_hash": "52796287fd92808933059b683aadcc46",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.agent\\skills\\speckit.reviewer\\SKILL.md": {
+    "mtime": 1780295589.7646465,
+    "ast_hash": "a6faa5447a45685f2bee7edd1ccdec5b",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.agent\\skills\\speckit.specify\\SKILL.md": {
+    "mtime": 1780295589.765541,
+    "ast_hash": "a50c6f4b0112b8be8a79890eecd71829",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.agent\\skills\\speckit.specify\\templates\\spec-template.md": {
+    "mtime": 1780295589.7660658,
+    "ast_hash": "51e09a9259a1b4021a6aae22d612052d",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.agent\\skills\\speckit.status\\SKILL.md": {
+    "mtime": 1780295589.7660658,
+    "ast_hash": "275cf7d877696334356a9de0642a4106",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.agent\\skills\\speckit.tasks\\SKILL.md": {
+    "mtime": 1780295589.76761,
+    "ast_hash": "75cea1b119ee4cbe3e572b56cdcb0a4b",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.agent\\skills\\speckit.tasks\\templates\\tasks-template.md": {
+    "mtime": 1780295589.76761,
+    "ast_hash": "9bbe5c1fbdbe93da7c522f085de7c0e1",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.agent\\skills\\speckit.taskstoissues\\SKILL.md": {
+    "mtime": 1780295589.7686336,
+    "ast_hash": "6529683f9388aab7601c26e84a981a81",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.agent\\skills\\speckit.tester\\SKILL.md": {
+    "mtime": 1780295589.769628,
+    "ast_hash": "db519d400969e7c099cddd0268e71a69",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.agent\\skills\\speckit.validate\\SKILL.md": {
+    "mtime": 1780295589.7706406,
+    "ast_hash": "55189cd4da7aa287b622fcf2523f6d9e",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.agent\\workflows\\00-speckit.all.md": {
+    "mtime": 1780295589.7706406,
+    "ast_hash": "234ea1db0a57d14b63ae05be6f8592fb",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.agent\\workflows\\01-speckit.constitution.md": {
+    "mtime": 1780295589.7706406,
+    "ast_hash": "74ea3ab33b66a3ea094280d9e3bf2c54",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.agent\\workflows\\02-speckit.specify.md": {
+    "mtime": 1780295589.772149,
+    "ast_hash": "7e62b4536bf3706b4e557438c7ccdbd1",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.agent\\workflows\\03-speckit.clarify.md": {
+    "mtime": 1780295589.7731626,
+    "ast_hash": "fc9d25d515adab25263f7ebef95d09df",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.agent\\workflows\\04-speckit.plan.md": {
+    "mtime": 1780295589.7731626,
+    "ast_hash": "9d555d6dd3d866860830ce2b8a0f0d09",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.agent\\workflows\\05-speckit.tasks.md": {
+    "mtime": 1780295589.7741725,
+    "ast_hash": "4d13c9ce4b34127e97740b873efa5ef0",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.agent\\workflows\\06-speckit.analyze.md": {
+    "mtime": 1780295589.7741725,
+    "ast_hash": "5ed3caa629b43835c78bec179c46b5ed",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.agent\\workflows\\07-speckit.implement.md": {
+    "mtime": 1780295589.7751708,
+    "ast_hash": "e99d2587c5a4a759cb0d4d78aecec761",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.agent\\workflows\\08-speckit.checker.md": {
+    "mtime": 1780295589.775784,
+    "ast_hash": "d271287670b701bcbf8f8d884574c79a",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.agent\\workflows\\09-speckit.tester.md": {
+    "mtime": 1780295589.775784,
+    "ast_hash": "94091c20fa2c696428ef23295ade3502",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.agent\\workflows\\10-speckit.reviewer.md": {
+    "mtime": 1780295589.7767997,
+    "ast_hash": "b4882d37c0ca11573ba0385194a206ad",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.agent\\workflows\\11-speckit.validate.md": {
+    "mtime": 1780295589.7767997,
+    "ast_hash": "436b3d8dbc634805034b141a70644541",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.agent\\workflows\\speckit.prepare.md": {
+    "mtime": 1780295589.7778,
+    "ast_hash": "8b23fcda2222e259906b8dc88ac38f10",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.agent\\workflows\\util-speckit.checklist.md": {
+    "mtime": 1780295589.7783265,
+    "ast_hash": "38a0033ee26853b7223789249c1d6595",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.agent\\workflows\\util-speckit.diff.md": {
+    "mtime": 1780295589.7783265,
+    "ast_hash": "cf480f765cb8dcf4e921a92e9f6ea281",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.agent\\workflows\\util-speckit.migrate.md": {
+    "mtime": 1780295589.7783265,
+    "ast_hash": "9aedf63fe8e955c96f1847f1cd3952c4",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.agent\\workflows\\util-speckit.quizme.md": {
+    "mtime": 1780295589.779346,
+    "ast_hash": "98a171b5e886f23452faa9798367f333",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.agent\\workflows\\util-speckit.status.md": {
+    "mtime": 1780295589.779346,
+    "ast_hash": "534e614dcd028845eb29a071c9ee6130",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.agent\\workflows\\util-speckit.taskstoissues.md": {
+    "mtime": 1780295589.7803454,
+    "ast_hash": "c11b86ea9038388d548bb9af42c40255",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.specify\\memory\\constitution.md": {
+    "mtime": 1780295785.3624592,
+    "ast_hash": "d4738395fb01ce8976e5f3d37a52f1fa",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.specify\\templates\\agent-file-template.md": {
+    "mtime": 1780295589.7622943,
+    "ast_hash": "b8247a4214e5a2fb2468ad8dcf5fca50",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.specify\\templates\\plan-template.md": {
+    "mtime": 1780295790.333006,
+    "ast_hash": "8f5bde64d413e62b0d64687359a803a6",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.specify\\templates\\spec-template.md": {
+    "mtime": 1780295589.7660658,
+    "ast_hash": "51e09a9259a1b4021a6aae22d612052d",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\.specify\\templates\\tasks-template.md": {
+    "mtime": 1780295589.76761,
+    "ast_hash": "9bbe5c1fbdbe93da7c522f085de7c0e1",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\specs\\001-user-auth\\data-model.md": {
+    "mtime": 1780297519.1608088,
+    "ast_hash": "9d8aa423844d7afb5b806c36151efd03",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\specs\\001-user-auth\\plan.md": {
+    "mtime": 1780297526.6516893,
+    "ast_hash": "ff8e423e3f8462d2b8f614c69b4d39cd",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\specs\\001-user-auth\\quickstart.md": {
+    "mtime": 1780296664.024091,
+    "ast_hash": "fa38b0ccce6adc299e892dacb48ee751",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\specs\\001-user-auth\\research.md": {
+    "mtime": 1780296364.8565326,
+    "ast_hash": "bb274c1f512b7d028337af2478549a0b",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\specs\\001-user-auth\\spec.md": {
+    "mtime": 1780296121.1296828,
+    "ast_hash": "ec0e00b5487a65add63ff0b66a32217f",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\specs\\001-user-auth\\tasks.md": {
+    "mtime": 1780297534.245513,
+    "ast_hash": "9e651e774e864a631a8e65adad22c138",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\specs\\001-user-auth\\checklists\\requirements.md": {
+    "mtime": 1780296126.7295048,
+    "ast_hash": "bb13d1114090df632f06cc21403d6c7f",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\specs\\002-refactor-auth-profile\\data-model.md": {
+    "mtime": 1780298098.1560981,
+    "ast_hash": "ed5ae48e40c393a113d531c7e5947ea7",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\specs\\002-refactor-auth-profile\\plan.md": {
+    "mtime": 1780298086.6132047,
+    "ast_hash": "e871f1904b2c49fa204db493b5cc556f",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\specs\\002-refactor-auth-profile\\quickstart.md": {
+    "mtime": 1780298104.1172173,
+    "ast_hash": "7ba90239f1af450fd27ff5f56471bb46",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\specs\\002-refactor-auth-profile\\research.md": {
+    "mtime": 1780298092.4266293,
+    "ast_hash": "34e6eef96e88185a461d6455c8f0d49f",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\specs\\002-refactor-auth-profile\\spec.md": {
+    "mtime": 1780298005.1549568,
+    "ast_hash": "a24bf60a1d0a9cb5fcfea3b96fe68e4c",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\specs\\002-refactor-auth-profile\\tasks.md": {
+    "mtime": 1780298287.9137552,
+    "ast_hash": "e22dc873b05bb1e3a66355dbe9064d2e",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\specs\\002-refactor-auth-profile\\checklists\\requirements.md": {
+    "mtime": 1780298010.2328155,
+    "ast_hash": "3ed3f7d7631abb3123bd4ef6548d6c5a",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\specs\\003-user-profile-upload\\data-model.md": {
+    "mtime": 1780298406.0411172,
+    "ast_hash": "82dd42bab694695facf1656f5774ad64",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\specs\\003-user-profile-upload\\plan.md": {
+    "mtime": 1780298396.9027128,
+    "ast_hash": "3b3dc31746d93ea625be11528e741186",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\specs\\003-user-profile-upload\\quickstart.md": {
+    "mtime": 1780298415.9241936,
+    "ast_hash": "4ba3bce80b7daa2d810de2c0b85db334",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\specs\\003-user-profile-upload\\research.md": {
+    "mtime": 1780298401.4538295,
+    "ast_hash": "0994abb23d0ac07b655e20f90a924f11",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\specs\\003-user-profile-upload\\spec.md": {
+    "mtime": 1780298345.9214787,
+    "ast_hash": "1f61c68e220ae95abdcf2d5b561e5576",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\specs\\003-user-profile-upload\\tasks.md": {
+    "mtime": 1780298597.6572237,
+    "ast_hash": "f81b9eaf56151a70341bece87bc3e011",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\specs\\003-user-profile-upload\\checklists\\requirements.md": {
+    "mtime": 1780298349.6140385,
+    "ast_hash": "bae0f8c5aff4e4f35efdcd82fefc4f87",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\specs\\004-dashboard-task-crud\\data-model.md": {
+    "mtime": 1780298691.960619,
+    "ast_hash": "b38e13daf55de9e109758205fa93dc14",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\specs\\004-dashboard-task-crud\\plan.md": {
+    "mtime": 1780298735.1137695,
+    "ast_hash": "b47a74f0b79aa561837513fdb5e8e438",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\specs\\004-dashboard-task-crud\\quickstart.md": {
+    "mtime": 1780298703.3668518,
+    "ast_hash": "ee5afdff0bff7d9a112482a401ac7cfa",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\specs\\004-dashboard-task-crud\\research.md": {
+    "mtime": 1780298687.2211359,
+    "ast_hash": "34d2ecc01a8fe32429cd2f53be4c6873",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\specs\\004-dashboard-task-crud\\spec.md": {
+    "mtime": 1780298656.3286862,
+    "ast_hash": "d7a801aea50c9c4540df271ecf5eaf9d",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\specs\\004-dashboard-task-crud\\tasks.md": {
+    "mtime": 1780298876.5808268,
+    "ast_hash": "a3f924cc2f3db2f5c0dd750852432187",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\specs\\004-dashboard-task-crud\\checklists\\requirements.md": {
+    "mtime": 1780298660.4920988,
+    "ast_hash": "fa9236d51f9147cd090825dd94cf631a",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\specs\\005-file-management\\plan.md": {
+    "mtime": 1780305541.5769823,
+    "ast_hash": "78ef35243f0e237438009d42a038a8a1",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\specs\\005-file-management\\spec.md": {
+    "mtime": 1780305520.2894359,
+    "ast_hash": "3eb494eeda5e18fd136b6e87bdf8a0aa",
+    "semantic_hash": ""
+  },
+  "D:\\Meet Patel\\Personal\\intern-task-api\\specs\\005-file-management\\checklists\\requirements.md": {
+    "mtime": 1780305524.9943392,
+    "ast_hash": "7bc485da680f659d89a2cad83146598f",
+    "semantic_hash": ""
+  }
+}

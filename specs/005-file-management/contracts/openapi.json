@@ -1,0 +1,131 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "File Management API Component",
+    "version": "1.0.0",
+    "description": "API contract for secure file uploads and deletions."
+  },
+  "paths": {
+    "/api/files/upload": {
+      "post": {
+        "summary": "Upload a single image file",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "image"
+                ],
+                "properties": {
+                  "image": {
+                    "type": "string",
+                    "format": "binary",
+                    "description": "Image file to upload (JPEG or PNG, max 2MB)"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Upload successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "File uploaded successfully"
+                    },
+                    "secure_url": {
+                      "type": "string",
+                      "example": "https://res.cloudinary.com/de8gnyqey/image/upload/v1726000000/profile_pictures/abc.png"
+                    },
+                    "public_id": {
+                      "type": "string",
+                      "example": "profile_pictures/abc"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "File too large, invalid format, or missing payload"
+          },
+          "401": {
+            "description": "Unauthorized access token"
+          },
+          "500": {
+            "description": "Internal server error during upload"
+          }
+        }
+      }
+    },
+    "/api/files/delete": {
+      "delete": {
+        "summary": "Delete an uploaded image asset",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "public_id"
+                ],
+                "properties": {
+                  "public_id": {
+                    "type": "string",
+                    "example": "profile_pictures/abc"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Asset deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "File deleted successfully from Cloudinary"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Missing public_id in body"
+          },
+          "401": {
+            "description": "Unauthorized access token"
+          },
+          "500": {
+            "description": "Internal server error during deletion"
+          }
+        }
+      }
+    }
+  }
+}
