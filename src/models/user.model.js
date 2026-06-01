@@ -42,12 +42,12 @@ const UserSchema = new mongoose.Schema({
 // Pre-save middleware to hash passwords
 UserSchema.pre('save', async function (next) {
   const user = this;
-  
+
   // Only hash password if it was modified (or is new)
   if (!user.isModified('password')) {
     return next();
   }
-  
+
   try {
     const salt = await bcrypt.genSalt(10);
     user.password = await bcrypt.hash(user.password, salt);
