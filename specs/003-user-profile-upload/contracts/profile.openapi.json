@@ -1,0 +1,179 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "User Profile & File Upload API",
+    "description": "API contract for secure retrieval and updating of user profiles with image file uploads.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "/api"
+    }
+  ],
+  "paths": {
+    "/profile": {
+      "get": {
+        "summary": "Retrieve user profile details",
+        "description": "Fetches the profile linked with the authenticated user's credentials.",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful retrieval",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProfileResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access"
+          },
+          "404": {
+            "description": "Profile not found"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update profile fields and avatar",
+        "description": "Accepts text updates and an optional multi-part image file for profile pictures.",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "fullName": {
+                    "type": "string"
+                  },
+                  "gender": {
+                    "type": "string",
+                    "enum": ["male", "female", "other"]
+                  },
+                  "address": {
+                    "type": "string"
+                  },
+                  "universityName": {
+                    "type": "string"
+                  },
+                  "city": {
+                    "type": "string"
+                  },
+                  "guardianName": {
+                    "type": "string"
+                  },
+                  "guardianPhoneNumber": {
+                    "type": "string"
+                  },
+                  "personalMobileNumber": {
+                    "type": "string"
+                  },
+                  "profileImage": {
+                    "type": "string",
+                    "format": "binary",
+                    "description": "Image file restricted to .jpg, .jpeg, .png up to 2MB"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful update",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProfileResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation or upload format error"
+          },
+          "401": {
+            "description": "Unauthorized access"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "schemas": {
+      "ProfileResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "65b5974c5d5e5e4078cb8db2"
+          },
+          "authId": {
+            "type": "string",
+            "example": "65b5974c5d5e5e4078cb8db1"
+          },
+          "fullName": {
+            "type": "string",
+            "example": "John Doe"
+          },
+          "gender": {
+            "type": "string",
+            "example": "male"
+          },
+          "profileUrl": {
+            "type": "string",
+            "nullable": true,
+            "example": "https://res.cloudinary.com/demo/image/upload/v12345/avatar.png"
+          },
+          "address": {
+            "type": "string",
+            "nullable": true,
+            "example": "123 Main St"
+          },
+          "universityName": {
+            "type": "string",
+            "nullable": true,
+            "example": "State University"
+          },
+          "city": {
+            "type": "string",
+            "nullable": true,
+            "example": "Metropolis"
+          },
+          "guardianName": {
+            "type": "string",
+            "nullable": true,
+            "example": "Richard Doe"
+          },
+          "guardianPhoneNumber": {
+            "type": "string",
+            "nullable": true,
+            "example": "+15550199"
+          },
+          "personalMobileNumber": {
+            "type": "string",
+            "nullable": true,
+            "example": "+15550100"
+          }
+        }
+      }
+    }
+  }
+}

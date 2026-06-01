@@ -26,7 +26,7 @@ const verifyToken = (req, res, next) => {
     // Verify token using secret key
     const decoded = jwt.verify(
       token,
-      process.env.JWT_ACCESS_SECRET || 'fallback_access_secret_123'
+      process.env.JWT_SECRET || 'fallback_signature_secret_key_123'
     );
 
     // Bind decoded user payload to request context

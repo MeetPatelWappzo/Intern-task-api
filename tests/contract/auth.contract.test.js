@@ -2,15 +2,17 @@ const fs = require('fs');
 const path = require('path');
 const request = require('supertest');
 const app = require('../../src/app');
-const User = require('../../src/models/user.model');
+const Auth = require('../../src/models/auth.model');
+const Profile = require('../../src/models/profile.model');
 
-jest.mock('../../src/models/user.model');
+jest.mock('../../src/models/auth.model');
+jest.mock('../../src/models/profile.model');
 
 describe('Auth OpenAPI Contract Verification Tests', () => {
   let openApiSpec;
 
   beforeAll(() => {
-    const specPath = path.join(__dirname, '../../specs/001-user-auth/contracts/auth.openapi.json');
+    const specPath = path.join(__dirname, '../../specs/002-refactor-auth-profile/contracts/auth.openapi.json');
     const specContent = fs.readFileSync(specPath, 'utf8');
     openApiSpec = JSON.parse(specContent);
   });
@@ -20,18 +22,27 @@ describe('Auth OpenAPI Contract Verification Tests', () => {
     expect(openApiSpec.openapi).toBe('3.0.0');
     expect(openApiSpec.paths).toHaveProperty('/auth/signup');
     expect(openApiSpec.paths).toHaveProperty('/auth/login');
-    expect(openApiSpec.paths).toHaveProperty('/auth/logout');
   });
 
   test('POST /api/auth/signup response payload matches contract SignupResponse schema', async () => {
-    User.findOne.mockResolvedValue(null);
-    User.mockImplementation(function (data) {
+    Auth.findOne.mockResolvedValue(null);
+    
+    Auth.mockImplementation(function (data) {
       const instance = {
-        _id: '65b5974c5d5e5e4078cb8db2',
-        name: data.name,
+        _id: 'mock_auth_id_123',
         email: data.email,
-        password: data.password,
-        gender: data.gender
+        password: data.password
+      };
+      instance.save = jest.fn().mockResolvedValue(instance);
+      return instance;
+    });
+
+    Profile.mockImplementation(function (data) {
+      const instance = {
+        authId: data.authId,
+        fullName: data.fullName,
+        gender: data.gender,
+        universityName: null
       };
       instance.save = jest.fn().mockResolvedValue(instance);
       return instance;
@@ -40,55 +51,51 @@ describe('Auth OpenAPI Contract Verification Tests', () => {
     const response = await request(app)
       .post('/api/auth/signup')
       .send({
-        name: 'John Doe',
-        email: 'user@example.com',
+        email: 'refactor@example.com',
         password: 'SecurePassword123!',
-        gender: 'male'
+        fullName: 'Jane Doe',
+        gender: 'female'
       });
 
     expect(response.status).toBe(201);
     
     // Validate contract structure for SignupResponse
-    const responseSchema = openApiSpec.components.schemas.SignupResponse;
     expect(response.body).toHaveProperty('message');
-    expect(response.body).toHaveProperty('user');
-    expect(response.body.user).toHaveProperty('id');
-    expect(response.body.user).toHaveProperty('email');
-    expect(response.body.user).toHaveProperty('name');
-    expect(response.body.user).toHaveProperty('gender');
+    expect(response.body).toHaveProperty('auth');
+    expect(response.body.auth).toHaveProperty('id');
+    expect(response.body.auth).toHaveProperty('email');
+    expect(response.body).toHaveProperty('profile');
+    expect(response.body.profile).toHaveProperty('fullName');
+    expect(response.body.profile).toHaveProperty('gender');
+    expect(response.body.profile).toHaveProperty('universityName');
 
     expect(response.body.message).toBe('Registration successful');
-    expect(response.body.user.email).toBe('user@example.com');
+    expect(response.body.auth.email).toBe('refactor@example.com');
   });
 
   test('POST /api/auth/login response payload matches contract LoginResponse schema', async () => {
-    const mockUser = {
-      _id: '65b5974c5d5e5e4078cb8db2',
-      email: 'user@example.com',
-      name: 'John Doe',
-      comparePassword: jest.fn().mockResolvedValue(true),
-      save: jest.fn().mockResolvedValue(true)
+    const mockAuth = {
+      _id: 'mock_auth_id_123',
+      email: 'refactor@example.com',
+      comparePassword: jest.fn().mockResolvedValue(true)
     };
     
-    User.findOne.mockResolvedValue(mockUser);
+    Auth.findOne.mockResolvedValue(mockAuth);
 
     const response = await request(app)
       .post('/api/auth/login')
       .send({
-        email: 'user@example.com',
+        email: 'refactor@example.com',
         password: 'SecurePassword123!'
       });
 
     expect(response.status).toBe(200);
 
     // Validate contract structure for LoginResponse
-    const responseSchema = openApiSpec.components.schemas.LoginResponse;
     expect(response.body).toHaveProperty('message');
     expect(response.body).toHaveProperty('accessToken');
-    expect(response.body).toHaveProperty('refreshToken');
-    expect(response.body).toHaveProperty('user');
-    expect(response.body.user).toHaveProperty('id');
-    expect(response.body.user).toHaveProperty('email');
-    expect(response.body.user).toHaveProperty('name');
+    expect(response.body).not.toHaveProperty('refreshToken');
+    expect(response.body).not.toHaveProperty('user');
   });
 });
+
