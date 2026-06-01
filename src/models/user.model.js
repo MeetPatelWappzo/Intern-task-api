@@ -30,6 +30,10 @@ const UserSchema = new mongoose.Schema({
       values: ['male', 'female', 'other'],
       message: 'Gender must be male, female, or other'
     }
+  },
+  refreshToken: {
+    type: String,
+    default: null
   }
 }, {
   timestamps: true

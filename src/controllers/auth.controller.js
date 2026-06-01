@@ -1,5 +1,4 @@
 const User = require('../models/user.model');
-const RefreshToken = require('../models/token.model');
 const jwt = require('jsonwebtoken');
 
 /**
@@ -172,18 +171,9 @@ const login = async (req, res, next) => {
     const accessToken = generateAccessToken(user);
     const refreshToken = generateRefreshToken(user);
 
-    // 5. Store refresh token in database with expiry (7 days)
-    const expiresAt = new Date();
-    expiresAt.setDate(expiresAt.getDate() + 7);
-
-    // Remove any previously stored refresh tokens for this user if desired (optional session consolidation)
-    // For single-session, we can clear all. For multi-session, we keep. We keep multi-session here.
-    const tokenRecord = new RefreshToken({
-      token: refreshToken,
-      user: user._id,
-      expiresAt: expiresAt
-    });
-    await tokenRecord.save();
+    // 5. Store refresh token directly inside user document
+    user.refreshToken = refreshToken;
+    await user.save();
 
     return res.status(200).json({
       message: 'Login successful',
@@ -235,12 +225,16 @@ const logout = async (req, res, next) => {
       return res.status(400).json({ error: 'Refresh token is required' });
     }
 
-    // Find and delete the matching token record
-    const deletedToken = await RefreshToken.findOneAndDelete({ token: refreshToken });
+    // Find the user with this active refresh token
+    const user = await User.findOne({ refreshToken });
     
-    if (!deletedToken) {
+    if (!user) {
       return res.status(401).json({ error: 'Session not found or already logged out' });
     }
+
+    // Invalidate refresh token by resetting to null
+    user.refreshToken = null;
+    await user.save();
 
     return res.status(200).json({ message: 'Logged out successfully' });
   } catch (error) {

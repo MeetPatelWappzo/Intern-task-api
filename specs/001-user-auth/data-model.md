@@ -39,6 +39,10 @@ const UserSchema = new mongoose.Schema({
       values: ['male', 'female', 'other'],
       message: 'Gender must be male, female, or other'
     }
+  },
+  refreshToken: {
+    type: String,
+    default: null
   }
 }, {
   timestamps: true // Auto-manages createdAt and updatedAt
@@ -49,40 +53,5 @@ const UserSchema = new mongoose.Schema({
 - **Email Uniqueness**: A unique index on `email` is established in MongoDB to prevent duplicate registrations.
 - **Lowercase Conversion**: Email is forced to lowercase to ensure consistency and prevent case-sensitive duplicate registrations.
 - **Trimming**: Spaces are trimmed from `email` and `name`.
+- **Session Reference**: A simple `refreshToken` field on the user model tracks active login sessions directly inside the User document, avoiding external collections.
 
----
-
-## 2. RefreshToken Schema
-
-The RefreshToken schema stores long-lived tokens issued during login.
-
-### Mongoose Schema Definition
-
-```javascript
-const mongoose = require('mongoose');
-
-const RefreshTokenSchema = new mongoose.Schema({
-  token: {
-    type: String,
-    required: true,
-    unique: true
-  },
-  user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-    required: true
-  },
-  expiresAt: {
-    type: Date,
-    required: true,
-    index: { expires: 0 } // TTL index: documents are automatically deleted at this timestamp
-  }
-}, {
-  timestamps: true
-});
-```
-
-### Constraints & Indexes
-- **Token Uniqueness**: A unique index on the `token` field is created.
-- **TTL Index**: An index on the `expiresAt` field with `expires: 0` is set up. MongoDB's background thread will automatically purge expired refresh tokens from the database once the `expiresAt` time is reached.
-- **Relationship**: Reference (`ref: 'User'`) binds each token to its corresponding owner user.

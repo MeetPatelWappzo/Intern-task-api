@@ -41,7 +41,7 @@
 
 **Independent Test**: Send a POST request to `/api/auth/login` with correct credentials, and check that `200 OK` is returned alongside an `accessToken` and a `refreshToken` in the JSON payload.
 
-- [x] T008 [P] [US2] Define Mongoose RefreshToken schema with TTL index in [src/models/token.model.js](file:///d:/Meet%20Patel/Personal/intern-task-api/src/models/token.model.js)
+- [x] T008 [P] [US2] Add refreshToken field with a default value of null to the Mongoose User schema in [src/models/user.model.js](file:///d:/Meet%20Patel/Personal/intern-task-api/src/models/user.model.js)
 - [x] T009 [US2] Implement credential validation and token generation for login handler in [src/controllers/auth.controller.js](file:///d:/Meet%20Patel/Personal/intern-task-api/src/controllers/auth.controller.js)
 - [x] T010 [US2] Map the login routing to its respective controller handler in [src/routes/auth.routes.js](file:///d:/Meet%20Patel/Personal/intern-task-api/src/routes/auth.routes.js)
 

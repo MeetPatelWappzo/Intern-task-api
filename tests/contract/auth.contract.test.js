@@ -3,10 +3,8 @@ const path = require('path');
 const request = require('supertest');
 const app = require('../../src/app');
 const User = require('../../src/models/user.model');
-const RefreshToken = require('../../src/models/token.model');
 
 jest.mock('../../src/models/user.model');
-jest.mock('../../src/models/token.model');
 
 describe('Auth OpenAPI Contract Verification Tests', () => {
   let openApiSpec;
@@ -68,11 +66,11 @@ describe('Auth OpenAPI Contract Verification Tests', () => {
       _id: '65b5974c5d5e5e4078cb8db2',
       email: 'user@example.com',
       name: 'John Doe',
-      comparePassword: jest.fn().mockResolvedValue(true)
+      comparePassword: jest.fn().mockResolvedValue(true),
+      save: jest.fn().mockResolvedValue(true)
     };
     
     User.findOne.mockResolvedValue(mockUser);
-    RefreshToken.prototype.save = jest.fn().mockResolvedValue(true);
 
     const response = await request(app)
       .post('/api/auth/login')

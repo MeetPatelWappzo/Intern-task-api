@@ -59,8 +59,7 @@ src/
 │   ├── auth.middleware.js    # JWT verification route protection middleware
 │   └── upload.middleware.js  # Multer middleware with strict 2MB limit
 ├── models/
-│   ├── user.model.js         # Mongoose User Schema (email, password, name, gender)
-│   └── token.model.js        # Mongoose RefreshToken Schema (token, user, expiresAt)
+│   └── user.model.js         # Mongoose User Schema (email, password, name, gender, refreshToken)
 ├── controllers/
 │   └── auth.controller.js    # signup, login, and logout controller handlers
 ├── routes/

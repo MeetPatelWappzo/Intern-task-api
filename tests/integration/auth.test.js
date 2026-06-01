@@ -1,11 +1,9 @@
 const request = require('supertest');
 const app = require('../../src/app');
 const User = require('../../src/models/user.model');
-const RefreshToken = require('../../src/models/token.model');
 const jwt = require('jsonwebtoken');
 
 jest.mock('../../src/models/user.model');
-jest.mock('../../src/models/token.model');
 
 describe('Auth API Integration Tests', () => {
   beforeEach(() => {
@@ -86,11 +84,11 @@ describe('Auth API Integration Tests', () => {
         _id: 'mock_user_id_123',
         email: 'jane@example.com',
         name: 'Jane Doe',
-        comparePassword: jest.fn().mockResolvedValue(true)
+        comparePassword: jest.fn().mockResolvedValue(true),
+        save: jest.fn().mockResolvedValue(true)
       };
       
       User.findOne.mockResolvedValue(mockUser);
-      RefreshToken.prototype.save = jest.fn().mockResolvedValue(true);
 
       const response = await request(app)
         .post('/api/auth/login')
@@ -129,7 +127,11 @@ describe('Auth API Integration Tests', () => {
 
   describe('POST /api/auth/logout', () => {
     test('should successfully log out and invalidate refresh token', async () => {
-      RefreshToken.findOneAndDelete.mockResolvedValue({ token: 'mock_refresh_token_123' });
+      const mockUser = {
+        refreshToken: 'mock_refresh_token_123',
+        save: jest.fn().mockResolvedValue(true)
+      };
+      User.findOne.mockResolvedValue(mockUser);
 
       const response = await request(app)
         .post('/api/auth/logout')
