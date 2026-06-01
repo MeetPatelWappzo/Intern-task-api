@@ -3,6 +3,8 @@
 Auto-generated from all feature plans. Last updated: 2026-06-01
 
 ## Active Technologies
+- Node.js v20.x + Express.js, Mongoose, bcryptjs, jsonwebtoken, dotenv, multer, cloudinary (002-refactor-auth-profile)
+- MongoDB (Mongoose ODM) (002-refactor-auth-profile)
 
 - Node.js v20.x + Express.js, Mongoose, bcryptjs, jsonwebtoken, dotenv (001-user-auth)
 
@@ -22,6 +24,7 @@ tests/
 Node.js v20.x: Follow standard conventions
 
 ## Recent Changes
+- 002-refactor-auth-profile: Added Node.js v20.x + Express.js, Mongoose, bcryptjs, jsonwebtoken, dotenv, multer, cloudinary
 
 - 001-user-auth: Added Node.js v20.x + Express.js, Mongoose, bcryptjs, jsonwebtoken, dotenv
 
