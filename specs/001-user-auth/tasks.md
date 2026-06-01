@@ -9,8 +9,8 @@
 
 **Purpose**: Project initialization and environment setup
 
-- [ ] T001 Configure development scripts (start, dev, test) in [package.json](file:///d:/Meet%20Patel/Personal/intern-task-api/package.json)
-- [ ] T002 Install runtime dependencies (express, mongoose, bcryptjs, jsonwebtoken, dotenv, multer, cloudinary) and development dependencies (jest, supertest, nodemon) in [package.json](file:///d:/Meet%20Patel/Personal/intern-task-api/package.json)
+- [x] T001 Configure development scripts (start, dev, test) in [package.json](file:///d:/Meet%20Patel/Personal/intern-task-api/package.json)
+- [x] T002 Install runtime dependencies (express, mongoose, bcryptjs, jsonwebtoken, dotenv, multer, cloudinary) and development dependencies (jest, supertest, nodemon) in [package.json](file:///d:/Meet%20Patel/Personal/intern-task-api/package.json)
 
 ---
 
@@ -18,8 +18,8 @@
 
 **Purpose**: Core configuration and database connection setup
 
-- [ ] T003 Initialize MongoDB connection using Mongoose in [src/config/db.js](file:///d:/Meet%20Patel/Personal/intern-task-api/src/config/db.js)
-- [ ] T004 Create shared upload middleware with a strict 2MB limit in [src/middleware/upload.middleware.js](file:///d:/Meet%20Patel/Personal/intern-task-api/src/middleware/upload.middleware.js)
+- [x] T003 Initialize MongoDB connection using Mongoose in [src/config/db.js](file:///d:/Meet%20Patel/Personal/intern-task-api/src/config/db.js)
+- [x] T004 Create shared upload middleware with a strict 2MB limit in [src/middleware/upload.middleware.js](file:///d:/Meet%20Patel/Personal/intern-task-api/src/middleware/upload.middleware.js)
 
 ---
 
@@ -29,9 +29,9 @@
 
 **Independent Test**: Send a POST request to `/api/auth/signup` with valid registration parameters, check that `201 Created` is returned, and verify the password is securely hashed in the database collection.
 
-- [ ] T005 [P] [US1] Define Mongoose User schema with validation and pre-save password-hashing hook in [src/models/user.model.js](file:///d:/Meet%20Patel/Personal/intern-task-api/src/models/user.model.js)
-- [ ] T006 [US1] Implement registration logic and input validation for signup handler in [src/controllers/auth.controller.js](file:///d:/Meet%20Patel/Personal/intern-task-api/src/controllers/auth.controller.js)
-- [ ] T007 [US1] Map the signup routing to its respective controller handler in [src/routes/auth.routes.js](file:///d:/Meet%20Patel/Personal/intern-task-api/src/routes/auth.routes.js)
+- [x] T005 [P] [US1] Define Mongoose User schema with validation and pre-save password-hashing hook in [src/models/user.model.js](file:///d:/Meet%20Patel/Personal/intern-task-api/src/models/user.model.js)
+- [x] T006 [US1] Implement registration logic and input validation for signup handler in [src/controllers/auth.controller.js](file:///d:/Meet%20Patel/Personal/intern-task-api/src/controllers/auth.controller.js)
+- [x] T007 [US1] Map the signup routing to its respective controller handler in [src/routes/auth.routes.js](file:///d:/Meet%20Patel/Personal/intern-task-api/src/routes/auth.routes.js)
 
 ---
 
@@ -41,9 +41,9 @@
 
 **Independent Test**: Send a POST request to `/api/auth/login` with correct credentials, and check that `200 OK` is returned alongside an `accessToken` and a `refreshToken` in the JSON payload.
 
-- [ ] T008 [P] [US2] Define Mongoose RefreshToken schema with TTL index in [src/models/token.model.js](file:///d:/Meet%20Patel/Personal/intern-task-api/src/models/token.model.js)
-- [ ] T009 [US2] Implement credential validation and token generation for login handler in [src/controllers/auth.controller.js](file:///d:/Meet%20Patel/Personal/intern-task-api/src/controllers/auth.controller.js)
-- [ ] T010 [US2] Map the login routing to its respective controller handler in [src/routes/auth.routes.js](file:///d:/Meet%20Patel/Personal/intern-task-api/src/routes/auth.routes.js)
+- [x] T008 [P] [US2] Define Mongoose RefreshToken schema with TTL index in [src/models/token.model.js](file:///d:/Meet%20Patel/Personal/intern-task-api/src/models/token.model.js)
+- [x] T009 [US2] Implement credential validation and token generation for login handler in [src/controllers/auth.controller.js](file:///d:/Meet%20Patel/Personal/intern-task-api/src/controllers/auth.controller.js)
+- [x] T010 [US2] Map the login routing to its respective controller handler in [src/routes/auth.routes.js](file:///d:/Meet%20Patel/Personal/intern-task-api/src/routes/auth.routes.js)
 
 ---
 
@@ -53,8 +53,8 @@
 
 **Independent Test**: Send a POST request to `/api/auth/logout` with the active refresh token, and verify that the token is successfully deleted from MongoDB.
 
-- [ ] T011 [US3] Implement token invalidation and database deletion for logout handler in [src/controllers/auth.controller.js](file:///d:/Meet%20Patel/Personal/intern-task-api/src/controllers/auth.controller.js)
-- [ ] T012 [US3] Map the logout routing to its respective controller handler in [src/routes/auth.routes.js](file:///d:/Meet%20Patel/Personal/intern-task-api/src/routes/auth.routes.js)
+- [x] T011 [US3] Implement token invalidation and database deletion for logout handler in [src/controllers/auth.controller.js](file:///d:/Meet%20Patel/Personal/intern-task-api/src/controllers/auth.controller.js)
+- [x] T012 [US3] Map the logout routing to its respective controller handler in [src/routes/auth.routes.js](file:///d:/Meet%20Patel/Personal/intern-task-api/src/routes/auth.routes.js)
 
 ---
 
@@ -64,8 +64,8 @@
 
 **Independent Test**: Send a request to a protected endpoint without an authorization header, verify it is blocked with `401 Unauthorized`, then send a request with a valid token and verify it succeeds.
 
-- [ ] T013 [P] [US4] Implement JWT verification route protection middleware in [src/middleware/auth.middleware.js](file:///d:/Meet%20Patel/Personal/intern-task-api/src/middleware/auth.middleware.js)
-- [ ] T014 [P] [US4] Create middleware JWT verification unit tests in [tests/unit/auth.middleware.test.js](file:///d:/Meet%20Patel/Personal/intern-task-api/tests/unit/auth.middleware.test.js)
+- [x] T013 [P] [US4] Implement JWT verification route protection middleware in [src/middleware/auth.middleware.js](file:///d:/Meet%20Patel/Personal/intern-task-api/src/middleware/auth.middleware.js)
+- [x] T014 [P] [US4] Create middleware JWT verification unit tests in [tests/unit/auth.middleware.test.js](file:///d:/Meet%20Patel/Personal/intern-task-api/tests/unit/auth.middleware.test.js)
 
 ---
 
@@ -73,11 +73,11 @@
 
 **Purpose**: Assemble final server parts and test implementation compliance
 
-- [ ] T015 Create base Express app instance mounting authentication routes in [src/app.js](file:///d:/Meet%20Patel/Personal/intern-task-api/src/app.js)
-- [ ] T016 Create server bootstrap listener mounting database connection in [src/server.js](file:///d:/Meet%20Patel/Personal/intern-task-api/src/server.js)
-- [ ] T017 [P] Create full API integration tests (covering successful signup, login, logout, and error payloads) in [tests/integration/auth.test.js](file:///d:/Meet%20Patel/Personal/intern-task-api/tests/integration/auth.test.js)
-- [ ] T018 [P] Create API contract validation tests matching OpenAPI spec in [tests/contract/auth.contract.test.js](file:///d:/Meet%20Patel/Personal/intern-task-api/tests/contract/auth.contract.test.js)
-- [ ] T019 Execute complete Jest test suite and resolve linting checks across the workspace
+- [x] T015 Create base Express app instance mounting authentication routes in [src/app.js](file:///d:/Meet%20Patel/Personal/intern-task-api/src/app.js)
+- [x] T016 Create server bootstrap listener mounting database connection in [src/server.js](file:///d:/Meet%20Patel/Personal/intern-task-api/src/server.js)
+- [x] T017 [P] Create full API integration tests (covering successful signup, login, logout, and error payloads) in [tests/integration/auth.test.js](file:///d:/Meet%20Patel/Personal/intern-task-api/tests/integration/auth.test.js)
+- [x] T018 [P] Create API contract validation tests matching OpenAPI spec in [tests/contract/auth.contract.test.js](file:///d:/Meet%20Patel/Personal/intern-task-api/tests/contract/auth.contract.test.js)
+- [x] T019 Execute complete Jest test suite and resolve linting checks across the workspace
 
 ---
 
