@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Daily Task Tracker</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/profile.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="dashboard.html" class="navbar-brand">Daily Task Tracker</a>
+        <div class="navbar-menu">
+            <a href="dashboard.html" class="nav-link">Dashboard</a>
+            <button id="logoutBtn" class="btn-logout">Logout</button>
+        </div>
+    </nav>
+
+    <main class="profile-container">
+        <div class="card profile-card">
+            <h2>My Profile</h2>
+            <div id="alertBox" class="alert"></div>
+            
+            <div class="profile-header">
+                <img id="profileImagePreview" src="https://via.placeholder.com/150" alt="Profile Picture" class="profile-avatar">
+            </div>
+
+            <form id="profileForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email (Read Only)</label>
+                        <input type="email" id="email" name="email" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <select id="gender" name="gender">
+                            <option value="">Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <input type="text" id="address" name="address">
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" id="city" name="city">
+                    </div>
+                    <div class="form-group">
+                        <label for="universityName">University Name</label>
+                        <input type="text" id="universityName" name="universityName">
+                    </div>
+                    <div class="form-group">
+                        <label for="guardianName">Guardian Name</label>
+                        <input type="text" id="guardianName" name="guardianName">
+                    </div>
+                    <div class="form-group">
+                        <label for="guardianPhoneNumber">Guardian Phone</label>
+                        <input type="text" id="guardianPhoneNumber" name="guardianPhoneNumber">
+                    </div>
+                    <div class="form-group">
+                        <label for="personalMobileNumber">Personal Mobile</label>
+                        <input type="text" id="personalMobileNumber" name="personalMobileNumber">
+                    </div>
+                    <div class="form-group form-group-full">
+                        <label for="image">Profile Image (JPEG/PNG, max 2MB)</label>
+                        <input type="file" id="image" name="image" accept="image/jpeg, image/png">
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-block mt-4">Save Profile</button>
+            </form>
+        </div>
+    </main>
+
+    <script type="module" src="js/profile.js"></script>
+</body>
+</html>

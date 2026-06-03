@@ -6,6 +6,7 @@ const PORT = process.env.PORT || 5001;
 
 // Connect to Database and start listening
 const startServer = async () => {
+  console.log(PORT)
   await connectDB();
   app.listen(PORT, () => {
     const baseUrl = process.env.APP_URL || `http://localhost:${PORT}`;

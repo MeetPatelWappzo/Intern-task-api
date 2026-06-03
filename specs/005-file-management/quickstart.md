@@ -14,31 +14,29 @@ This document contains instructions for executing and verifying File Management 
   ```json
   {
     "message": "File uploaded successfully",
-    "secure_url": "https://res.cloudinary.com/de8gnyqey/image/upload/v1726000000/profile_pictures/abc.png",
-    "public_id": "profile_pictures/abc"
+    "file": {
+      "id": "60d5ecb8b392d7...",
+      "secure_url": "https://res.cloudinary.com/...",
+      "public_id": "profile_pictures/abc"
+    }
   }
   ```
 
-### 2. Delete File (`DELETE /api/files/delete`)
+### 2. Delete File (`DELETE /api/files/delete?public_id=YOUR_PUBLIC_ID`)
 - **Headers**:
   - `Authorization: Bearer <JWT_ACCESS_TOKEN>`
-  - `Content-Type: application/json`
-- **Request Body**:
-  ```json
-  {
-    "public_id": "profile_pictures/abc"
-  }
-  ```
+- **Query Parameters**:
+  - `public_id`: The Cloudinary public ID returned during upload.
+- **Request Body**: None.
 - **Response (200 OK)**:
   ```json
   {
-    "message": "File deleted successfully from Cloudinary"
+    "message": "File deleted successfully"
   }
   ```
 
 ## Swagger UI Testing
+Open your browser at your API URL: `http://localhost:5002/api/docs`
 
-1. Open Chrome at: `http://localhost:5000/api/docs`
-2. Authenticate using your Bearer token.
-3. Locate the **Files** tag.
-4. Try out `POST /api/files/upload` by selecting an image file from your machine directly in the Swagger UI.
+Authenticate using your Bearer token.
+Locate the Files tag to test upload and deletion directly.
