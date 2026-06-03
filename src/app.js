@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const dotenv = require('dotenv');
 const cors = require('cors');
 const swaggerUi = require('swagger-ui-express');
@@ -48,6 +49,9 @@ app.get('/api/docs.json', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   res.send(swaggerSpec);
 });
+
+// ── Serve Frontend ──────────────────────────────────────────────
+app.use(express.static(path.join(__dirname, '../public')));
 
 // ── API Routes ──────────────────────────────────────────────
 app.use('/api/auth', authRoutes);

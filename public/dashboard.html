@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Daily Task Tracker</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="dashboard.html" class="navbar-brand">Daily Task Tracker</a>
+        <div class="navbar-menu">
+            <a href="profile.html" class="nav-link">Profile</a>
+            <button id="logoutBtn" class="btn-logout">Logout</button>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <!-- Sidebar / Task Creation Form -->
+        <aside class="sidebar">
+            <div class="card">
+                <h3>Create New Task</h3>
+                <div id="alertBox" class="alert"></div>
+                <form id="createTaskForm">
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input type="text" id="title" name="title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea id="description" name="description" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="priority">Priority</label>
+                        <select id="priority" name="priority" required>
+                            <option value="epic">Epic</option>
+                            <option value="high">High</option>
+                            <option value="medium">Medium</option>
+                            <option value="low">Low</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-block">Add Task</button>
+                </form>
+            </div>
+        </aside>
+
+        <!-- Main Content / Task List -->
+        <main class="main-content">
+            <div class="toolbar">
+                <h2>My Tasks</h2>
+                <div class="filter-group">
+                    <label for="filterPriority">Filter by Priority:</label>
+                    <select id="filterPriority">
+                        <option value="all">All</option>
+                        <option value="epic">Epic</option>
+                        <option value="high">High</option>
+                        <option value="medium">Medium</option>
+                        <option value="low">Low</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="tasksGrid" class="tasks-grid">
+                <!-- Task cards will be injected here via JS -->
+                <p>Loading tasks...</p>
+            </div>
+        </main>
+    </div>
+
+    <!-- Edit Task Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Edit Task</h2>
+            <form id="editTaskForm">
+                <input type="hidden" id="editTaskId">
+                <div class="form-group">
+                    <label for="editTitle">Title</label>
+                    <input type="text" id="editTitle" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="editDescription">Description</label>
+                    <textarea id="editDescription" name="description" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="editPriority">Priority</label>
+                    <select id="editPriority" name="priority" required>
+                        <option value="epic">Epic</option>
+                        <option value="high">High</option>
+                        <option value="medium">Medium</option>
+                        <option value="low">Low</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-block">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="js/dashboard.js"></script>
+</body>
+</html>
