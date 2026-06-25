@@ -5,7 +5,8 @@ const {
   createTask,
   getTasks,
   updateTask,
-  updateTaskStatus
+  updateTaskStatus,
+  deleteTask
 } = require('../controllers/task.controller');
 
 /**
@@ -241,5 +242,32 @@ router.patch('/:id', verifyToken, updateTask);
  *               $ref: '#/components/schemas/ErrorResponse'
  */
 router.patch('/:id/status', verifyToken, updateTaskStatus);
+/**
+ * @swagger
+ * /api/tasks/{id}:
+ *   delete:
+ *     tags: [Tasks]
+ *     summary: Delete a task
+ *     description: Deletes a specific task belonging to the authenticated user.
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Task MongoDB ObjectId
+ *     responses:
+ *       200:
+ *         description: Task deleted successfully
+ *       401:
+ *         description: Missing or invalid JWT token
+ *       404:
+ *         description: Task not found or not owned by user
+ *       500:
+ *         description: Internal server error
+ */
+router.delete('/:id', verifyToken, deleteTask);
 
 module.exports = router;

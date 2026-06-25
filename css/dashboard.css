@@ -114,6 +114,20 @@
     text-decoration: underline;
 }
 
+.btn-delete {
+    background: none;
+    border: none;
+    color: #e96c6c; /* Red color for delete */
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.875rem;
+    margin-left: 0.5rem;
+}
+
+.btn-delete:hover {
+    text-decoration: underline;
+}
+
 /* Modal styles */
 .modal {
     display: none;

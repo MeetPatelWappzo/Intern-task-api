@@ -77,7 +77,10 @@ function renderTasks() {
                     <option value="in-progress" ${task.status === 'in-progress' ? 'selected' : ''}>In Progress</option>
                     <option value="completed" ${task.status === 'completed' ? 'selected' : ''}>Completed</option>
                 </select>
-                <button class="btn-edit" data-id="${task.id}">Edit</button>
+                <div>
+                    <button class="btn-edit" data-id="${task.id}">Edit</button>
+                    <button class="btn-delete" data-id="${task.id}">Delete</button>
+                </div>
             </div>
         </div>
     `).join('');
@@ -88,6 +91,9 @@ function renderTasks() {
     });
     document.querySelectorAll('.btn-edit').forEach(btn => {
         btn.addEventListener('click', openEditModal);
+    });
+    document.querySelectorAll('.btn-delete').forEach(btn => {
+        btn.addEventListener('click', handleDeleteTask);
     });
 }
 
@@ -112,6 +118,28 @@ async function handleStatusChange(e) {
         alert(err.message);
         // Re-render to revert select box on failure
         renderTasks();
+    }
+}
+
+// Handle Delete Task
+async function handleDeleteTask(e) {
+    if (!confirm('Are you sure you want to delete this task?')) return;
+    
+    const taskId = e.target.dataset.id;
+    try {
+        const res = await fetchWithAuth(`/api/tasks/${taskId}`, {
+            method: 'DELETE'
+        });
+        if (!res.ok) {
+            const data = await res.json();
+            throw new Error(data.message || data.error || 'Failed to delete task');
+        }
+        
+        allTasks = allTasks.filter(t => t.id !== taskId);
+        renderTasks();
+        showAlert('Task deleted successfully!', false);
+    } catch (err) {
+        alert(err.message);
     }
 }
 
