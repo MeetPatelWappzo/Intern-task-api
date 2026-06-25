@@ -11,7 +11,7 @@ function showAlert(message, isError = true) {
 function handleSignup(event) {
     event.preventDefault();
     const form = event.target;
-    const name = form.name.value;
+    const fullName = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
     const gender = form.gender.value;
@@ -19,12 +19,12 @@ function handleSignup(event) {
     fetch(`${API_BASE_URL}/api/auth/signup`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, password, gender })
+        body: JSON.stringify({ fullName, email, password, gender })
     })
     .then(async res => {
         const data = await res.json();
         if (!res.ok) {
-            throw new Error(data.message || 'Signup failed');
+            throw new Error(data.message || data.error || 'Signup failed');
         }
         showAlert('Account created successfully! Redirecting...', false);
         setTimeout(() => {
@@ -50,10 +50,10 @@ function handleLogin(event) {
     .then(async res => {
         const data = await res.json();
         if (!res.ok) {
-            throw new Error(data.message || 'Login failed');
+            throw new Error(data.message || data.error || 'Login failed');
         }
-        if (data.token) {
-            setAccessToken(data.token);
+        if (data.accessToken) {
+            setAccessToken(data.accessToken);
             window.location.href = 'dashboard.html';
         } else {
             throw new Error('Token missing from response');

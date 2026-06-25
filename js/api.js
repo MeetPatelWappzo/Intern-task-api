@@ -38,5 +38,11 @@ export async function fetchWithAuth(endpoint, options = {}) {
     };
 
     const response = await fetch(`${API_BASE_URL}${endpoint}`, config);
+    if (response.status === 401) {
+        clearAccessToken();
+        if (window.location.pathname.indexOf('login.html') === -1) {
+            window.location.href = 'login.html';
+        }
+    }
     return response;
 }

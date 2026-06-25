@@ -11,7 +11,7 @@ const generateAccessToken = (auth) => {
   return jwt.sign(
     { id: auth._id, email: auth.email },
     process.env.JWT_SECRET || 'fallback_signature_secret_key_123',
-    { expiresIn: '15m' }
+    { expiresIn: process.env.JWT_EXPIRES_IN || '24h' }
   );
 };
 
