@@ -30,7 +30,7 @@ async function loadProfile() {
         }
         
         const data = await res.json();
-        if (!res.ok) throw new Error(data.message || 'Failed to fetch profile');
+        if (!res.ok) throw new Error(data.message || data.error || 'Failed to fetch profile');
         
         const user = data.user || data;
         
@@ -88,7 +88,7 @@ if (profileForm) {
             });
             
             const data = await res.json();
-            if (!res.ok) throw new Error(data.message || 'Failed to update profile');
+            if (!res.ok) throw new Error(data.message || data.error || 'Failed to update profile');
             
             showAlert('Profile updated successfully!', false);
             

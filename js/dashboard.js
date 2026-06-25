@@ -37,7 +37,7 @@ async function fetchTasks() {
             return;
         }
         const data = await res.json();
-        if (!res.ok) throw new Error(data.message || 'Failed to fetch tasks');
+        if (!res.ok) throw new Error(data.message || data.error || 'Failed to fetch tasks');
         
         allTasks = data; // Assumes API returns array of tasks directly
         if (!Array.isArray(allTasks) && data.tasks) {
@@ -72,12 +72,12 @@ function renderTasks() {
             </div>
             <div class="task-desc">${escapeHTML(task.description || '')}</div>
             <div class="task-footer">
-                <select class="status-select" data-id="${task._id}">
+                <select class="status-select" data-id="${task.id}">
                     <option value="pending" ${task.status === 'pending' ? 'selected' : ''}>Pending</option>
                     <option value="in-progress" ${task.status === 'in-progress' ? 'selected' : ''}>In Progress</option>
                     <option value="completed" ${task.status === 'completed' ? 'selected' : ''}>Completed</option>
                 </select>
-                <button class="btn-edit" data-id="${task._id}">Edit</button>
+                <button class="btn-edit" data-id="${task.id}">Edit</button>
             </div>
         </div>
     `).join('');
@@ -103,10 +103,10 @@ async function handleStatusChange(e) {
         });
         if (!res.ok) {
             const data = await res.json();
-            throw new Error(data.message || 'Failed to update status');
+            throw new Error(data.message || data.error || 'Failed to update status');
         }
         // Update local state
-        const task = allTasks.find(t => t._id === taskId);
+        const task = allTasks.find(t => t.id === taskId);
         if(task) task.status = newStatus;
     } catch (err) {
         alert(err.message);
@@ -132,7 +132,7 @@ if (createTaskForm) {
                 body: JSON.stringify(body)
             });
             const data = await res.json();
-            if (!res.ok) throw new Error(data.message || 'Failed to create task');
+            if (!res.ok) throw new Error(data.message || data.error || 'Failed to create task');
             
             showAlert('Task created successfully!', false);
             createTaskForm.reset();
@@ -149,13 +149,14 @@ if (createTaskForm) {
 // Edit Modal Logic
 function openEditModal(e) {
     const taskId = e.target.dataset.id;
-    const task = allTasks.find(t => t._id === taskId);
+    const task = allTasks.find(t => t.id === taskId);
     if (!task) return;
 
-    document.getElementById('editTaskId').value = task._id;
+    document.getElementById('editTaskId').value = task.id;
     document.getElementById('editTitle').value = task.title; // disabled field
     document.getElementById('editDescription').value = task.description || '';
     document.getElementById('editPriority').value = task.priority;
+    document.getElementById('editStatus').value = task.status;
     
     editModal.style.display = 'flex';
 }
@@ -174,6 +175,7 @@ if (editTaskForm) {
             description: formData.get('description'),
             priority: formData.get('priority')
         };
+        const newStatus = formData.get('status');
 
         try {
             const res = await fetchWithAuth(`/api/tasks/${taskId}`, {
@@ -181,13 +183,23 @@ if (editTaskForm) {
                 body: JSON.stringify(body)
             });
             const data = await res.json();
-            if (!res.ok) throw new Error(data.message || 'Failed to update task');
+            if (!res.ok) throw new Error(data.message || data.error || 'Failed to update task');
+            
+            const task = allTasks.find(t => t.id === taskId);
+            if (task && newStatus !== task.status) {
+                const statusRes = await fetchWithAuth(`/api/tasks/${taskId}/status`, {
+                    method: 'PATCH',
+                    body: JSON.stringify({ status: newStatus })
+                });
+                const statusData = await statusRes.json();
+                if (!statusRes.ok) throw new Error(statusData.message || statusData.error || 'Failed to update status');
+            }
             
             // Update local state
-            const task = allTasks.find(t => t._id === taskId);
             if(task) {
                 task.description = body.description;
                 task.priority = body.priority;
+                task.status = newStatus;
             }
             
             editModal.style.display = 'none';
